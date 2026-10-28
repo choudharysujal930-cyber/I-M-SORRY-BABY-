@@ -1,74 +1,137 @@
 
-      chahta hoon ki hum pyaar se baat karke
-      sab theek kar sakein. 🥺🫶🏻
-    </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I M SORRY BABY 🥺🫶🏻</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:linear-gradient(135deg,#ffe4ed,#fff8fb);
+ color:#813b58;font-family:Georgia,serif;
+}
+#sky{position:fixed;inset:0;overflow:hidden;pointer-events:none}
+.heart{position:absolute;bottom:-40px;animation:up 6s linear forwards}
+@keyframes up{to{transform:translateY(-110vh) rotate(40deg);opacity:0}}
+.page{
+ display:none;min-height:100vh;padding:22px 15px;
+ align-items:center;justify-content:center;
+}
+.page.active{display:flex;animation:enter .5s ease}
+@keyframes enter{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.card{
+ width:100%;max-width:520px;text-align:center;
+ padding:30px 22px;background:#ffffffed;
+ border-radius:25px;box-shadow:0 12px 40px #a43b6118;
+ position:relative;z-index:1;
+}
+h1{font-size:clamp(42px,10vw,62px);color:#b43d6c;line-height:1.1}
+h2{font-size:32px;color:#b43d6c}
+p{font-size:17px;line-height:1.8}
+.big{font-size:52px;animation:beat 1s infinite}
+@keyframes beat{50%{transform:scale(1.17)}}
+.note{background:#fff1f6;padding:18px;border-radius:16px;text-align:left}
+button{border:0;border-radius:30px;padding:14px 19px;margin:7px 3px;font-weight:bold;cursor:pointer}
+.next{background:#b43d6c;color:white}
+.back{background:#ffe0eb;color:#983858}
+.dots{margin-top:20px;letter-spacing:7px;color:#d07898}
+#hug{display:none;background:#fff1f6;padding:15px;border-radius:15px}
+</style>
+</head>
+<body>
+<div id="sky"></div>
 
-    <h2>I'm sorry, meri jaan 🤍🧿</h2>
+<div class="page active" id="page1">
+ <div class="card">
+  <div class="big">🥺🫶🏻</div>
+  <h1>I M SORRY<br>BABY</h1>
+  <p>My favourite person in this whole world 🤍</p>
+  <p>Baby please, next page dekho na 💌</p>
+  <button class="next" onclick="openPage(2)">OPEN MY LETTER →</button>
+  <div class="dots">● ○ ○ ○</div>
+  <p>Page 1 / 4</p>
+ </div>
+</div>
 
-    <button class="primary" onclick="showHug()">
-      A little hug? 🫂
-    </button>
-
-    <button class="secondary" onclick="nextPage(1)">
-      Read again ↺
-    </button>
-
-    <div id="hug">
-      Sending you the softest virtual hug, baby 🫂🤍
-      <br><br>
-      No pressure, take your time.
-      I care about you so much 🥺🫶🏻
-    </div>
-
-    <div class="dots">○ ○ ○ ●</div>
-    <div class="footer">Page 4 of 4 · Made just for you</div>
+<div class="page" id="page2">
+ <div class="card">
+  <div class="big">💌</div>
+  <h2>I'm really sorry</h2>
+  <div class="note">
+   Meri jaan 🥺🤍
+   <p>Mujhe sach mein sorry hai agar maine tumhe hurt kiya. Main nahi chahta ki meri wajah se tum udaas ho.</p>
+   <p>Tumhari feelings mere liye important hain. Main tumhari baat samajhna aur apni galti sudharna chahta hoon.</p>
+   <p>Please baby, jab ready ho tab hum pyaar se baat karenge. 🫶🏻</p>
   </div>
-</section>
+  <button class="back" onclick="openPage(1)">← BACK</button>
+  <button class="next" onclick="openPage(3)">NEXT →</button>
+  <div class="dots">○ ● ○ ○</div>
+  <p>Page 2 / 4</p>
+ </div>
+</div>
+
+<div class="page" id="page3">
+ <div class="card">
+  <div class="big">🧿🤍</div>
+  <h2>My little promises</h2>
+  <p>Baby, I want to do better, not just say sorry.</p>
+  <div class="note">
+   <p>🤍 I'll listen instead of arguing.</p>
+   <p>🫶🏻 I'll respect your feelings.</p>
+   <p>🌷 I'll try to show my change through actions.</p>
+  </div>
+  <p>You don't have to forgive me instantly. Take your time, baby. 🤍</p>
+  <button class="back" onclick="openPage(2)">← BACK</button>
+  <button class="next" onclick="openPage(4)">LAST PAGE →</button>
+  <div class="dots">○ ○ ● ○</div>
+  <p>Page 3 / 4</p>
+ </div>
+</div>
+
+<div class="page" id="page4">
+ <div class="card">
+  <div class="big">❤️‍🩹</div>
+  <h1>Please naa,<br>baby 🥺</h1>
+  <p>Main chahta hoon hum calmly baat karein aur ek dusre ko samjhein.</p>
+  <h2>I love you 🤍🧿</h2>
+  <button class="next" onclick="showHug()">A VIRTUAL HUG 🫂</button>
+  <div id="hug">Sending you a big virtual hug, baby! 🫂🤍<br>I'm truly sorry 🥺🫶🏻</div>
+  <br>
+  <button class="back" onclick="openPage(1)">START AGAIN ↺</button>
+  <div class="dots">○ ○ ○ ●</div>
+  <p>Page 4 / 4</p>
+ </div>
+</div>
 
 <script>
-function nextPage(number) {
-  document.querySelectorAll(".page").forEach(page => {
-    page.classList.remove("active");
-  });
-
-  document.getElementById("page" + number)
-    .classList.add("active");
-
-  window.scrollTo({ top: 0, behavior: "smooth" });
-  createHearts(12);
+function openPage(n){
+ document.querySelectorAll(".page").forEach(function(p){
+  p.classList.remove("active");
+ });
+ document.getElementById("page"+n).classList.add("active");
+ window.scrollTo(0,0);
+ makeHearts(12);
 }
-
-function showHug() {
-  document.getElementById("hug").style.display = "block";
-  createHearts(35);
+function showHug(){
+ document.getElementById("hug").style.display="block";
+ makeHearts(30);
 }
-
-function createHearts(amount) {
-  const container = document.getElementById("hearts");
-  const emojis = ["🤍", "🩷", "♡", "🫶🏻", "✨", "🌷"];
-
-  for (let i = 0; i < amount; i++) {
-    const heart = document.createElement("span");
-
-    heart.className = "heart";
-    heart.textContent =
-      emojis[Math.floor(Math.random() * emojis.length)];
-
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = (16 + Math.random() * 22) + "px";
-    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
-
-    container.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 8500);
-  }
+function makeHearts(n){
+ var sky=document.getElementById("sky");
+ for(var i=0;i<n;i++){
+  var h=document.createElement("span");
+  h.className="heart";
+  h.textContent=["🤍","🩷","♡","🫶🏻","✨"][Math.floor(Math.random()*5)];
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=(3+Math.random()*4)+"s";
+  h.style.fontSize=(18+Math.random()*18)+"px";
+  sky.appendChild(h);
+  setTimeout(function(el){el.remove()},7500,h);
+ }
 }
-
-// Floating hearts keep appearing in the background
-setInterval(() => {
-  createHearts(2);
-}, 1400);
+setInterval(function(){makeHearts(2)},1300);
+makeHearts(15);
 </script>
-
 </body>
 </html>
