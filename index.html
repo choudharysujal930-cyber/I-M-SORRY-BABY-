@@ -1,0 +1,74 @@
+
+      chahta hoon ki hum pyaar se baat karke
+      sab theek kar sakein. 🥺🫶🏻
+    </p>
+
+    <h2>I'm sorry, meri jaan 🤍🧿</h2>
+
+    <button class="primary" onclick="showHug()">
+      A little hug? 🫂
+    </button>
+
+    <button class="secondary" onclick="nextPage(1)">
+      Read again ↺
+    </button>
+
+    <div id="hug">
+      Sending you the softest virtual hug, baby 🫂🤍
+      <br><br>
+      No pressure, take your time.
+      I care about you so much 🥺🫶🏻
+    </div>
+
+    <div class="dots">○ ○ ○ ●</div>
+    <div class="footer">Page 4 of 4 · Made just for you</div>
+  </div>
+</section>
+
+<script>
+function nextPage(number) {
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
+
+  document.getElementById("page" + number)
+    .classList.add("active");
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  createHearts(12);
+}
+
+function showHug() {
+  document.getElementById("hug").style.display = "block";
+  createHearts(35);
+}
+
+function createHearts(amount) {
+  const container = document.getElementById("hearts");
+  const emojis = ["🤍", "🩷", "♡", "🫶🏻", "✨", "🌷"];
+
+  for (let i = 0; i < amount; i++) {
+    const heart = document.createElement("span");
+
+    heart.className = "heart";
+    heart.textContent =
+      emojis[Math.floor(Math.random() * emojis.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (16 + Math.random() * 22) + "px";
+    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+    container.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 8500);
+  }
+}
+
+// Floating hearts keep appearing in the background
+setInterval(() => {
+  createHearts(2);
+}, 1400);
+</script>
+
+</body>
+</html>
